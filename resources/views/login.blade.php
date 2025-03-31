@@ -10,9 +10,9 @@
     <div class="container d-flex justify-content-center align-items-center vh-100">
         <div class="card p-4 shadow" style="width: 400px;">
             <h3 class="text-center mb-4">Login</h3>
-            <form method="get" action="/dashbaord">
-              <!--
-              @csrf-->
+            <form method="post" action="/dashboard">
+              
+              @csrf
                 <div class="mb-3">
                     <label for="email" class="form-label">Email address</label>
                     <input type="email" class="form-control" id="email"  placeholder="Enter your email" required>

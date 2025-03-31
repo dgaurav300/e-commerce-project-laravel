@@ -1,6 +1,3 @@
-@extends('layouts.app')
-
-@section('content')
 <div class="container">
     <h1 class="my-4">Dashboard</h1>
 
@@ -34,6 +31,38 @@
                 <div class="card-body">
                     <h5 class="card-title">150</h5>
                     <p class="card-text">This is the total number of customers.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Sales Chart -->
+        <div class="col-md-6">
+            <div class="card mb-3">
+                <div class="card-header">Sales Chart</div>
+                <div class="card-body">
+                    <canvas id="salesChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Low Stock Alerts -->
+        <div class="col-md-6">
+            <div class="card mb-3">
+                <div class="card-header">Low Stock Alerts</div>
+                <div class="card-body">
+                    <ul class="list-group">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Product X
+                            <span class="badge bg-danger rounded-pill">5 left</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Product Y
+                            <span class="badge bg-danger rounded-pill">2 left</span>
+                        </li>
+                        <!-- Add more alerts as needed -->
+                    </ul>
                 </div>
             </div>
         </div>
@@ -77,5 +106,48 @@
             </div>
         </div>
     </div>
+
+    <div class="row">
+        <!-- Notifications -->
+        <div class="col-md-12">
+            <div class="card mb-3">
+                <div class="card-header">Notifications</div>
+                <div class="card-body">
+                    <ul class="list-group">
+                        <li class="list-group-item">New order received from John Doe.</li>
+                        <li class="list-group-item">Product Z is back in stock.</li>
+                        <li class="list-group-item">Monthly sales target achieved!</li>
+                        <!-- Add more notifications as needed -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-@endsection
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const ctx = document.getElementById('salesChart').getContext('2d');
+    const salesChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['January', 'February', 'March', 'April', 'May'],
+            datasets: [{
+                label: 'Sales',
+                data: [5000, 7000, 8000, 6000, 9000],
+                borderColor: 'rgba(75, 192, 192, 1)',
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderWidth: 2
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: true,
+                    position: 'top'
+                }
+            }
+        }
+    });
+</script>

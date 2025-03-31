@@ -14,6 +14,6 @@ Route::get('/register', function () {
     return view('register');
 });
 
-Route::get('/dashboard', function () {
+Route::post('/dashboard', function () {
     return view('dashboard');
 });
